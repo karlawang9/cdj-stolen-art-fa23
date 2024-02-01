@@ -1,0 +1,48 @@
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Stolen Art Card Visualization</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Map Visualization</a>
+            </li>
+            <li>
+                <a href="card.html">Card Visualization</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="row">
+        <p id="stat1"></p>
+        <p>Total Art Pieces Stolen</p>
+    </div>
+    <script>
+        const stat1 = d3.select("#stat1");
+
+        const requestData = async function() {
+
+            const artData = await d3.csv("data/cleaned_interpol_country_data.csv");
+
+            artData.forEach( (d, i) => {
+                d.total = Number(d.total);
+            });
+
+            art_total = 0
+            for (let i=0; i<artData.length; i++) {
+                art_total += artData[i].total;
+            };
+            
+            stat1.append("h1").text(art_total);
+        };
+        requestData();
+    </script>
+</body>
+</html>
