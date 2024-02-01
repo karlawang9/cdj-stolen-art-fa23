@@ -1,3 +1,5 @@
 # cdj-stolen-art-project
 
-This project is about stolen artwork around the world. Part of CDJ 2023 projects.
+Files for the CDJ Stolen Art Project web article.
+
+Original repo here: https://cdj-stolen-art-fa23.onrender.com/static/
